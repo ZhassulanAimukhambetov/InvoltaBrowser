@@ -19,7 +19,12 @@ extension String {
         return URLRequest(url: url)
     }
     func urlRequest() -> URLRequest {
-        guard let url = URL(string: "https://\(self)") else { return self.searchRequest() }
-        return URLRequest(url: url)
+        if self.lowercased().hasPrefix("https://") {
+            guard let url = URL(string: self) else { return self.searchRequest() }
+            return URLRequest(url: url)
+        } else {
+            guard let url = URL(string: "https://\(self)") else { return self.searchRequest() }
+            return URLRequest(url: url)
+        }
     }
 }
