@@ -11,12 +11,14 @@ import UIKit
 class HistoryViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    
     var history: [URL]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        navigationItem.title = "History"
     }
 }
 

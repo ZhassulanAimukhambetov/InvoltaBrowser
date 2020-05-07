@@ -48,6 +48,7 @@ class BrowserViewController: UIViewController {
     @objc func showHistory() {
         guard let historyVC = storyboard?.instantiateViewController(identifier: "history") as? HistoryViewController else { return }
         historyVC.history = self.history
+        
         navigationController?.pushViewController(historyVC, animated: true)
     }
     
